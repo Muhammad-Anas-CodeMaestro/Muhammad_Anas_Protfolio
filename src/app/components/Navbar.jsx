@@ -4,8 +4,8 @@ function Navbar() {
     return (
         <>
             <div className='h-18'>
-                <div className='flex justify-between h-18 w-3/4 mx-auto items-center'>
-                    <div className='flex items-center pl-3 pr-3'>
+                <div className='flex justify-between h-18 w-2/3 mx-auto items-center'>
+                    <div className='flex items-center px-3'>
                         <h3 className='bg-purple-500 font-medium text-white px-5 py-3 rounded-full text-2xl mr-3'>A</h3>
                         <h3 className='text-gray-900 text-2xl font-bold'>Anas</h3>
                     </div>
