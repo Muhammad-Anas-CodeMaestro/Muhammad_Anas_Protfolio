@@ -17,13 +17,29 @@ function HomeSection() {
     h5: "Education"
   }]
 
+  const skillLeft = [
+    { name: "HTML", percentage: "95%" },
+    { name: "CSS", percentage: "90%" },
+    { name: "JavaScript", percentage: "85%" },
+    { name: "React", percentage: "80%" },
+    { name: "Next.js", percentage: "80%" },
+  ];
+
+  const skillRight = [
+    { name: "Node.js", percentage: "70%" },
+    { name: "Express.js", percentage: "70%" },
+    { name: "MongoDB", percentage: "70%" },
+    { name: "Bootstrap", percentage: "80%" },
+    { name: "Tailwind CSS", percentage: "75%" }
+  ];
+
   return (
     <>
       <div className="relative w-full min-h-screen flex items-center justify-center">
         <div className='bg-gradient-to-l from-purple-200 to-white absolute right-0 top-0 w-1/2 h-full z-0'></div>
         <div className="w-2/3 mx-auto relative z-10">
-          <div className=" flex justify-between items-center h-fit mt-12">
-            <div className="w-1/2 px-3">
+          <div className="flex justify-around items-center h-fit mt-12">
+            <div className="w-1/2">
               <h1 className="text-5xl text-gray-900 py-5">Hello, I'm Muhammad Anas</h1>
               <p className="w-full text-gray-600 text-sm drop-shadow-lg pb-5">
                 I am a  <span className="relative font-semibold text-gray-900">
@@ -31,7 +47,7 @@ function HomeSection() {
                   Front-End Developer
                 </span> trying my best to build clean, responsive, and, of course, accessible user interface. Bringing ideas to the visions of interactivity with pixel perfect websites.
               </p>
-              <h3 className="px-5 py-2 bg-purple-500 text-white rounded-md w-fit">Say Hello!</h3>
+              <h3 className="px-5 py-2 bg-purple-500 text-white rounded-md w-fit cursor-pointer">Say Hello!</h3>
               <div className="flex justify-around items-center mt-20 mb-10 text-center ">
                 {data.map((item, index) => (
                   <div key={index} className="bg-gray-200 w-full mx-0.5 py-3">
@@ -42,16 +58,14 @@ function HomeSection() {
               </div>
             </div>
             <div className="w-2/5">
-              <img src="/DP.jpg" alt="AnasPicture" width={300} className='rounded-2xl  shadow-lg' />
+              <img src="/DP.jpg" alt="AnasPicture" width={300} className='rounded-2xl  shadow-lg mx-auto' />
             </div>
           </div>
           <div className="flex shadow-2xl px-12 py-15 my-16 bg-gray-50 rounded-lg items-center">
-            <div className='w-1/2 mx-auto'>
-              <div className='relative'>
-                <img src="/Graybg.jpg" alt="AnasPicture" width={300} className='bg-transparent rounded-md'/>
-              </div>
+            <div className='w-fit relative mx-auto'>
+              <img src="/Graybg.jpg" alt="AnasPicture" width={300} className='bg-transparent rounded-md' />
               <div className='flex items-center justify-center bg-white text-purple-500 text-lg px-3 py-2 
-              absolute transform -translate-x-1/2 left-1/5 bottom-[96px] shadow-md'>.
+              absolute transform -translate-x-1/2 translate-y-1/2 left-1/2 bottom-0 space-x-3 shadow-md'>
                 <FontAwesomeIcon icon={faFacebookF} className='pr-3' />
                 <FontAwesomeIcon icon={faLinkedinIn} className='p-3 bg-purple-500 text-white' />
                 <FontAwesomeIcon icon={faGithub} className='pl-3' />
@@ -65,12 +79,39 @@ function HomeSection() {
               <p className='text-gray-600 text-sm pb-5'>
                 I enjoy overcoming real world challenges with code whether it is through the development of user friendly user interfaces or cross-browser compatibilities.
               </p>
-              <button className='px-5 py-2 bg-purple-500 text-white rounded-md w-fit mr-2'>
-                My Project
-              </button>
+              <a href="https://github.com/Muhammad-Anas-CodeMaestro" target='_blank' className='px-5 py-3 bg-purple-500 text-white rounded-md w-fit mr-2'>My Projects</a>
               <button className='px-5 py-2 bg-white text-purple-500 w-fit border border-purple-500 rounded-md'>
                 <FontAwesomeIcon icon={faDownload} /> Download CV
               </button>
+            </div>
+          </div>
+          <div className=' mt-20'>
+            <h1 className="text-2xl text-purple-500 rounded-md border px-5 py-2 w-fit mx-auto mb-5">My Skills</h1>
+            <div className='flex'>
+              <div className='w-1/2'>
+                {skillLeft.map((skill, inder) => (
+                  <div key={inder} className="skill-box">
+                    <span className="tittle">{skill.name}</span>
+                    <div className="skill-bar">
+                      <span className="skill-per html">
+                        <span className="tooltip">{skill.percentage}</span>
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className='w-1/2'>
+                {skillRight.map((skill, inder) => (
+                  <div key={inder} className="skill-box">
+                    <span className="tittle">{skill.name}</span>
+                    <div className="skill-bar">
+                      <span className="skill-per html">
+                        <span className="tooltip">{skill.percentage}</span>
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
