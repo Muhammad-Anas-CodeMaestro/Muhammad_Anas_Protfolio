@@ -1,10 +1,35 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, faLinkedinIn, faGithub, } from '@fortawesome/free-brands-svg-icons'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 
 function HomeSection() {
+  const skillRef = useRef();
+  const [inView, setInView] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting)
+      }, {
+      threshold: 0.4
+    }
+    )
+
+    if (skillRef.current) {
+      observer.observe(skillRef.current)
+    }
+
+    return () => {
+      if (skillRef.current) {
+        observer.unobserve(skillRef.current)
+      }
+    }
+
+  }, [])
+
 
   const data = [{
     h3: "Beginner",
@@ -20,17 +45,17 @@ function HomeSection() {
   const skillLeft = [
     { name: "HTML", percentage: "95%" },
     { name: "CSS", percentage: "90%" },
-    { name: "JavaScript", percentage: "85%" },
+    { name: "JavaScript", percentage: "90%" },
     { name: "React", percentage: "80%" },
-    { name: "Next.js", percentage: "80%" },
+    { name: "Next.js", percentage: "75%" },
   ];
 
   const skillRight = [
-    { name: "Node.js", percentage: "70%" },
-    { name: "Express.js", percentage: "70%" },
-    { name: "MongoDB", percentage: "70%" },
+    { name: "Node.js", percentage: "50%" },
+    { name: "Express.js", percentage: "50%" },
+    { name: "MongoDB", percentage: "40%" },
     { name: "Bootstrap", percentage: "80%" },
-    { name: "Tailwind CSS", percentage: "75%" }
+    { name: "Tailwind CSS", percentage: "85%" }
   ];
 
   return (
@@ -85,32 +110,44 @@ function HomeSection() {
               </button>
             </div>
           </div>
-          <div className=' mt-20'>
-            <h1 className="text-2xl text-purple-500 rounded-md border px-5 py-2 w-fit mx-auto mb-5">My Skills</h1>
-            <div className='flex'>
-              <div className='w-1/2'>
-                {skillLeft.map((skill, inder) => (
-                  <div key={inder} className="skill-box">
-                    <span className="tittle">{skill.name}</span>
-                    <div className="skill-bar">
-                      <span className="skill-per html">
-                        <span className="tooltip">{skill.percentage}</span>
-                      </span>
+          <div className='mb-10'>
+            <div className="relative w-full bg-white rounded-xl px-6 py-4">
+              <h1 className="text-2xl text-purple-500 rounded-md border px-5 py-2 w-fit mx-auto mb-5">My Skills</h1>
+              <div ref={skillRef} className='flex gap-x-8'>
+                <div className='w-1/2'>
+                  {skillLeft.map((skill, inder) => (
+                    <div key={inder} className="my-9">
+                      <span className="block text-lg font-semibold text-gray-700">{skill.name}</span>
+                      <div className="h-2 w-full rounded-xl mt-2 bg-gray-200">
+                        <span className={`relative block h-full rounded-xl bg-purple-500 ${inView ? 'opacity-100 animate-progress' : 'opacity-0'}`} style={{
+                          "--bar-width": skill.percentage,
+                          animationDelay: `${inder * 0.1}s`
+                        }}>
+                          <span className="absolute -right-3.5 -top-11 text-sm font-medium text-white py-1 px-2 rounded-md bg-purple-500 z-10">{skill.percentage}
+                            <span className='absolute left-1/2 -bottom-1 h-2.5 w-2.5 bg-purple-500 transform -translate-x-1/2 rotate-45 z-0'></span>
+                          </span>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-              <div className='w-1/2'>
-                {skillRight.map((skill, inder) => (
-                  <div key={inder} className="skill-box">
-                    <span className="tittle">{skill.name}</span>
-                    <div className="skill-bar">
-                      <span className="skill-per html">
-                        <span className="tooltip">{skill.percentage}</span>
-                      </span>
+                  ))}
+                </div>
+                <div className='w-1/2'>
+                  {skillRight.map((skill, inder) => (
+                    <div key={inder} className="my-9">
+                      <span className="block text-lg font-semibold text-gray-700">{skill.name}</span>
+                      <div className="h-2 w-full rounded-xl mt-2 bg-gray-200">
+                        <span className={`relative block h-full rounded-xl bg-purple-500 ${inView ? 'opacity-100 animate-progress' : 'opacity-0'}`} style={{
+                          "--bar-width": skill.percentage,
+                          animationDelay: `${inder * 0.1}s`
+                        }}>
+                          <span className="absolute -right-3.5 -top-11 text-sm font-medium text-white py-1 px-2 rounded-md bg-purple-500 z-10">{skill.percentage}
+                            <span className='absolute left-1/2 -bottom-1 h-2.5 w-2.5 bg-purple-500 transform -translate-x-1/2 rotate-45 z-0'></span>
+                          </span>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>

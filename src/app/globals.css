@@ -4,4 +4,19 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+@keyframes progress {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: var(--bar-width);
+    opacity: 1;
+  }
+}
+
+.animate-progress{
+  animation: progress 0.3s ease-in-out forwards;
+}
+
 @import "tailwindcss"
