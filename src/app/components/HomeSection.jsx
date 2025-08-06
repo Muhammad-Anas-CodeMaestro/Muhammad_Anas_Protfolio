@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, faLinkedinIn, faGithub, } from '@fortawesome/free-brands-svg-icons'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
-import Link from 'next/link'
 
 function HomeSection() {
   const skillRef = useRef();
@@ -60,10 +59,17 @@ function HomeSection() {
 
   return (
     <>
-      <div className="relative w-full min-h-screen flex items-center justify-center">
-        <div className='bg-gradient-to-l from-purple-200 to-white absolute right-0 top-0 w-1/2 h-full z-0'></div>
+      <div className="relative w-full min-h-screen flex items-center justify-center bg-white">
+        <div className='absolute right-0 top-0 w-1/2 h-1/5 z-0 bg-gradient-to-br from-white via-white to-blue-100'>
+        </div>
+        <div className='bg-gradient-to-bl from-blue-100 via-white to-white absolute right-0 w-1/2 h-3/5 z-0'>
+        </div>
+        <div className='absolute left-0 top-0 w-1/2 h-3/5 bg-gradient-to-t from-orange-100 via-white to-white z-0'>
+        </div>
+        <div className='absolute bottom-0 w-full h-2/5 bg-gray-200 z-0'>
+        </div>
         <div className="w-2/3 mx-auto relative z-10">
-          <div className="flex justify-around items-center h-fit mt-12">
+          <div className="flex justify-around items-center h-fit mt-13">
             <div className="w-1/2">
               <h1 className="text-5xl text-gray-900 py-5">Hello, I'm Muhammad Anas</h1>
               <p className="w-full text-gray-600 text-sm drop-shadow-lg pb-5">
@@ -86,7 +92,7 @@ function HomeSection() {
               <img src="/DP.jpg" alt="AnasPicture" width={300} className='rounded-2xl  shadow-lg mx-auto' />
             </div>
           </div>
-          <div className="flex shadow-2xl px-12 py-15 my-16 bg-gray-50 rounded-lg items-center">
+          <div className="flex shadow-2xl px-12 py-15 my-20 bg-gray-50 rounded-lg items-center">
             <div className='w-fit relative mx-auto'>
               <img src="/Graybg.jpg" alt="AnasPicture" width={300} className='bg-transparent rounded-md' />
               <div className='flex items-center justify-center bg-white text-purple-500 text-lg px-3 py-2 
@@ -111,9 +117,9 @@ function HomeSection() {
             </div>
           </div>
           <div className='mb-10'>
-            <div className="relative w-full bg-white rounded-xl px-6 py-4">
-              <h1 className="text-2xl text-purple-500 rounded-md border px-5 py-2 w-fit mx-auto mb-5">My Skills</h1>
-              <div ref={skillRef} className='flex gap-x-8'>
+            <div className="relative w-full">
+              <h1 className="text-2xl font-semibold text-gray-900 w-fit mx-auto mb-5">My Skills</h1>
+              <div ref={skillRef} className='flex gap-x-8 bg-white rounded-xl px-6 py-4'>
                 <div className='w-1/2'>
                   {skillLeft.map((skill, inder) => (
                     <div key={inder} className="my-9">
