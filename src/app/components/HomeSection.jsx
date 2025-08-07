@@ -3,32 +3,11 @@ import React, { useEffect, useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, faLinkedinIn, faGithub, } from '@fortawesome/free-brands-svg-icons'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
+import { motion ,useInView } from 'framer-motion'
 
 function HomeSection() {
   const skillRef = useRef();
-  const [inView, setInView] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setInView(entry.isIntersecting)
-      }, {
-      threshold: 0.4
-    }
-    )
-
-    if (skillRef.current) {
-      observer.observe(skillRef.current)
-    }
-
-    return () => {
-      if (skillRef.current) {
-        observer.unobserve(skillRef.current)
-      }
-    }
-
-  }, [])
-
+  const isInView = useInView(skillRef, { threshold: 0.4 });
 
   const data = [{
     h3: "Beginner",
@@ -60,7 +39,7 @@ function HomeSection() {
   return (
     <>
       <div className="relative w-full min-h-screen flex items-center justify-center bg-white">
-        <div className='absolute right-0 top-0 w-1/2 h-1/5 z-0 bg-gradient-to-br from-white via-white to-blue-100'>
+        <div className='absolute right-0 top-0 w-1/2 h-1/5 z-0 bg-gradient-to-r from-white via-purple-100 to-blue-100'>
         </div>
         <div className='bg-gradient-to-bl from-blue-100 via-white to-white absolute right-0 w-1/2 h-3/5 z-0'>
         </div>
@@ -68,8 +47,8 @@ function HomeSection() {
         </div>
         <div className='absolute bottom-0 w-full h-2/5 bg-gray-200 z-0'>
         </div>
-        <div className="w-2/3 mx-auto relative z-10">
-          <div className="flex justify-around items-center h-fit mt-13">
+        <div className="w-2/3 mx-auto relative z-10" id='home'>
+          <div className="flex justify-around items-center h-fit mt-15 mb-20">
             <div className="w-1/2">
               <h1 className="text-5xl text-gray-900 py-5">Hello, I'm Muhammad Anas</h1>
               <p className="w-full text-gray-600 text-sm drop-shadow-lg pb-5">
@@ -92,7 +71,7 @@ function HomeSection() {
               <img src="/DP.jpg" alt="AnasPicture" width={300} className='rounded-2xl  shadow-lg mx-auto' />
             </div>
           </div>
-          <div className="flex shadow-2xl px-12 py-15 my-20 bg-gray-50 rounded-lg items-center">
+          <div className="flex shadow-2xl px-12 py-15 my-20 bg-gray-50 rounded-lg items-center" id='about'>
             <div className='w-fit relative mx-auto'>
               <img src="/Graybg.jpg" alt="AnasPicture" width={300} className='bg-transparent rounded-md' />
               <div className='flex items-center justify-center bg-white text-purple-500 text-lg px-3 py-2 
@@ -116,40 +95,56 @@ function HomeSection() {
               </button>
             </div>
           </div>
-          <div className='mb-10'>
+          <div className='mb-10' id='skills'>
             <div className="relative w-full">
               <h1 className="text-2xl font-semibold text-gray-900 w-fit mx-auto mb-5">My Skills</h1>
               <div ref={skillRef} className='flex gap-x-8 bg-white rounded-xl px-6 py-4'>
                 <div className='w-1/2'>
-                  {skillLeft.map((skill, inder) => (
-                    <div key={inder} className="my-9">
+                  {skillLeft.map((skill, index) => (
+                    <div key={index} className="my-9">
                       <span className="block text-lg font-semibold text-gray-700">{skill.name}</span>
-                      <div className="h-2 w-full rounded-xl mt-2 bg-gray-200">
-                        <span className={`relative block h-full rounded-xl bg-purple-500 ${inView ? 'opacity-100 animate-progress' : 'opacity-0'}`} style={{
-                          "--bar-width": skill.percentage,
-                          animationDelay: `${inder * 0.1}s`
-                        }}>
-                          <span className="absolute -right-3.5 -top-11 text-sm font-medium text-white py-1 px-2 rounded-md bg-purple-500 z-10">{skill.percentage}
-                            <span className='absolute left-1/2 -bottom-1 h-2.5 w-2.5 bg-purple-500 transform -translate-x-1/2 rotate-45 z-0'></span>
-                          </span>
-                        </span>
+                      <div className="h-2 w-full rounded-xl mt-2 bg-gray-200">                     
+                        <motion.span
+                          initial={{ width: 0, opacity: 0 }}
+                          animate={isInView ? { width: skill.percentage, opacity: 1 } : {}}
+                          transition={{ duration: 0.8, delay: index * 0.1 }}
+                          className="block h-full rounded-xl bg-purple-500 relative"
+                        >
+                          <motion.span
+                            initial={{ opacity: 0, y: 0 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : {}}
+                            transition={{ delay: index * 0.1 + 0.3 }}
+                            className="absolute -right-3.5 -top-11 text-sm font-medium text-white py-1 px-2 rounded-md bg-purple-500 z-10"
+                          >
+                            {skill.percentage}
+                            <span className="absolute left-1/2 -bottom-1 h-2.5 w-2.5 bg-purple-500 transform -translate-x-1/2 rotate-45 z-0"></span>
+                          </motion.span>
+                        </motion.span>
                       </div>
                     </div>
                   ))}
                 </div>
                 <div className='w-1/2'>
-                  {skillRight.map((skill, inder) => (
-                    <div key={inder} className="my-9">
+                  {skillRight.map((skill, index) => (
+                    <div key={index} className="my-9">
                       <span className="block text-lg font-semibold text-gray-700">{skill.name}</span>
                       <div className="h-2 w-full rounded-xl mt-2 bg-gray-200">
-                        <span className={`relative block h-full rounded-xl bg-purple-500 ${inView ? 'opacity-100 animate-progress' : 'opacity-0'}`} style={{
-                          "--bar-width": skill.percentage,
-                          animationDelay: `${inder * 0.1}s`
-                        }}>
-                          <span className="absolute -right-3.5 -top-11 text-sm font-medium text-white py-1 px-2 rounded-md bg-purple-500 z-10">{skill.percentage}
-                            <span className='absolute left-1/2 -bottom-1 h-2.5 w-2.5 bg-purple-500 transform -translate-x-1/2 rotate-45 z-0'></span>
-                          </span>
-                        </span>
+                        <motion.span
+                          initial={{ width: 0, opacity: 0 }}
+                          animate={isInView ? { width: skill.percentage, opacity: 1 } : {}}
+                          transition={{ duration: 0.8, delay: index * 0.1 }}
+                          className="block h-full rounded-xl bg-purple-500 relative"
+                        >
+                          <motion.span
+                            initial={{ opacity: 0, y: 0 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : {}}
+                            transition={{ delay: index * 0.1 + 0.3 }}
+                            className="absolute -right-3.5 -top-11 text-sm font-medium text-white py-1 px-2 rounded-md bg-purple-500 z-10"
+                          >
+                            {skill.percentage}
+                            <span className="absolute left-1/2 -bottom-1 h-2.5 w-2.5 bg-purple-500 transform -translate-x-1/2 rotate-45 z-0"></span>
+                          </motion.span>
+                        </motion.span>
                       </div>
                     </div>
                   ))}
