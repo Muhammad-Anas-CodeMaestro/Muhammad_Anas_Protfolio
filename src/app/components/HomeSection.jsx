@@ -7,11 +7,9 @@ import { motion, time, useInView } from 'framer-motion'
 
 function HomeSection() {
   const homeRef = useRef(null);
-  const isHomeInView = useInView(homeRef, { threshold: 0.2})
+  const isHomeInView = useInView(homeRef, { threshold: 0.2 })
   const aboutRef = useRef(null);
   const isAboutInView = useInView(aboutRef, { threshold: 0.2 });
-  const skillRef = useRef(null)
-  const isSkillInView = useInView(skillRef, { threshold: 0.2 });
 
   const data = [{
     h3: "Beginner",
@@ -43,19 +41,17 @@ function HomeSection() {
   return (
     <>
       <div className="relative w-full min-h-screen flex items-center justify-center bg-white">
-        <div className='absolute right-0 top-0 w-1/2 h-1/5 z-0 bg-gradient-to-r from-white via-purple-100 to-blue-100'>
+        <div className='absolute right-0 top-0 w-1/2 h-1/4 z-0 bg-gradient-to-r from-white via-purple-100 to-blue-100'>
         </div>
-        <div className='bg-gradient-to-bl from-blue-100 via-white to-white absolute right-0 w-1/2 h-3/5 z-0'>
+        <div className='absolute right-0 bottom-0 w-1/2 h-3/4 z-0 bg-gradient-to-bl from-blue-100 via-white to-white'>
         </div>
-        <div className='absolute left-0 top-0 w-1/2 h-3/5 bg-gradient-to-t from-orange-100 via-white to-white z-0'>
-        </div>
-        <div className='absolute bottom-0 w-full h-2/5 bg-gray-200 z-0'>
+        <div className='absolute left-0 bottom-0 w-1/2 h-3/5 z-0 bg-gradient-to-tr from-orange-100 via-white to-white'>
         </div>
         <div className="w-2/3 mx-auto relative z-10" id='home'>
           <div ref={homeRef} className="flex justify-around items-center h-fit mt-15 mb-20">
             <motion.div
               initial={{ x: -80, opacity: 0, scale: 0.95 }}
-              animate={ isHomeInView ? {  x: 0, opacity: 1, scale: 1 } : { x: -80, opacity: 0, scale: 0.95 } }
+              animate={isHomeInView ? { x: 0, opacity: 1, scale: 1 } : { x: -80, opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.5, type: 'spring', stiffness: 15, damping: 10, }}
               className="w-1/2">
               <h1 className="text-5xl text-gray-900 py-5">Hello, I'm Muhammad Anas</h1>
@@ -77,7 +73,7 @@ function HomeSection() {
             </motion.div>
             <motion.div
               initial={{ x: 80, opacity: 0, scale: 0.95 }}
-              animate={ isHomeInView ? { x: 0, opacity: 1, scale: 1 } : { x: 80, opacity: 0, scale: 0.95 }}
+              animate={isHomeInView ? { x: 0, opacity: 1, scale: 1 } : { x: 80, opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.5, type: 'spring', stiffness: 15, damping: 10, }}
               className="w-2/5">
               <img src="/DP.jpg" alt="AnasPicture" width={300} className='rounded-2xl  shadow-lg mx-auto' />
@@ -87,7 +83,7 @@ function HomeSection() {
           <div ref={aboutRef} className="flex shadow-2xl px-12 py-15 my-20 bg-gray-50 rounded-lg items-center">
             <motion.div
               initial={{ x: -80, opacity: 0, scale: 0.95 }}
-              animate={ isAboutInView ? { x: 0, opacity: 1, scale: 1 } : { x: -80, opacity: 0, scale: 0.95 } }
+              animate={isAboutInView ? { x: 0, opacity: 1, scale: 1 } : { x: -80, opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.5, type: 'spring', stiffness: 15, damping: 10, ease: 'easeInOut' }}
               className='w-fit relative mx-auto'>
               <img src="/Graybg.jpg" alt="AnasPicture" width={300} className='bg-transparent rounded-md' />
@@ -100,7 +96,7 @@ function HomeSection() {
             </motion.div>
             <motion.div
               initial={{ x: 80, opacity: 0 }}
-              animate={ isAboutInView ? { x: 0, opacity: 1, scale: 1 } : { x: 80, opacity: 0, scale: 0.95 }}
+              animate={isAboutInView ? { x: 0, opacity: 1, scale: 1 } : { x: 80, opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.5, type: 'spring', stiffness: 15, damping: 10, ease: 'easeInOut' }}
               className='w-1/2 space'>
               <h3 className='text-gray-900 font-semibold font-sans text-3xl pb-7'>I am Front-End Developer</h3>
@@ -123,63 +119,7 @@ function HomeSection() {
               </div>
             </motion.div>
           </div>
-          <div className='mb-10' id='skills'>
-            <div className="relative w-full">
-              <h1 className="text-2xl font-semibold text-gray-900 w-fit mx-auto mb-5">My Skills</h1>
-              <div ref={skillRef} className='flex gap-x-8 bg-white rounded-xl px-6 py-4'>
-                <div className='w-1/2'>
-                  {skillLeft.map((skill, index) => (
-                    <div key={index} className="my-9">
-                      <span className="block text-lg font-semibold text-gray-700">{skill.name}</span>
-                      <div className="h-2 w-full rounded-xl mt-2 bg-gray-200">
-                        <motion.span
-                          initial={{ width: 0, opacity: 0 }}
-                          animate={isSkillInView ? { width: skill.percentage, opacity: 1 } : {}}
-                          transition={{ duration: 0.8, delay: index * 0.1 }}
-                          className="block h-full rounded-xl bg-purple-500 relative"
-                        >
-                          <motion.span
-                            initial={{ opacity: 0, y: 0 }}
-                            animate={isSkillInView ? { opacity: 1, y: 0 } : {}}
-                            transition={{ delay: index * 0.1 + 0.3 }}
-                            className="absolute -right-3.5 -top-11 text-sm font-medium text-white py-1 px-2 rounded-md bg-purple-500 z-10"
-                          >
-                            {skill.percentage}
-                            <span className="absolute left-1/2 -bottom-1 h-2.5 w-2.5 bg-purple-500 transform -translate-x-1/2 rotate-45 z-0"></span>
-                          </motion.span>
-                        </motion.span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className='w-1/2'>
-                  {skillRight.map((skill, index) => (
-                    <div key={index} className="my-9">
-                      <span className="block text-lg font-semibold text-gray-700">{skill.name}</span>
-                      <div className="h-2 w-full rounded-xl mt-2 bg-gray-200">
-                        <motion.span
-                          initial={{ width: 0, opacity: 0 }}
-                          animate={isSkillInView ? { width: skill.percentage, opacity: 1 } : {}}
-                          transition={{ duration: 0.8, delay: index * 0.1 }}
-                          className="block h-full rounded-xl bg-purple-500 relative"
-                        >
-                          <motion.span
-                            initial={{ opacity: 0, y: 0 }}
-                            animate={isSkillInView ? { opacity: 1, y: 0 } : {}}
-                            transition={{ delay: index * 0.1 + 0.3 }}
-                            className="absolute -right-3.5 -top-11 text-sm font-medium text-white py-1 px-2 rounded-md bg-purple-500 z-10"
-                          >
-                            {skill.percentage}
-                            <span className="absolute left-1/2 -bottom-1 h-2.5 w-2.5 bg-purple-500 transform -translate-x-1/2 rotate-45 z-0"></span>
-                          </motion.span>
-                        </motion.span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </>
