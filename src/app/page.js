@@ -1,5 +1,6 @@
-import HomeSection from "./components/HomeSection";
 import Navbar from "./components/Navbar";
+import HomeSection from "./components/HomeSection";
+import { AboutMe } from "./components/AboutMe";
 import { Skills } from "./components/Skills";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <>
       <Navbar />
       <HomeSection />
+      <AboutMe />
       <Skills />
     </>
   );
