@@ -3,6 +3,7 @@ import { Home } from "./components/Home";
 import { AboutMe } from "./components/AboutMe";
 import { Skills } from "./components/Skills";
 import { Portfolio } from "./components/Portfolio";
+import { WorkTogether } from "./components/WorkTogether";
 
 export default function page() {
   return (
@@ -12,6 +13,7 @@ export default function page() {
       <AboutMe />
       <Skills />
       <Portfolio />
+      <WorkTogether />
     </>
   );
 }
