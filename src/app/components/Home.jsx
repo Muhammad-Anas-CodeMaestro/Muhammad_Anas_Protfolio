@@ -2,7 +2,7 @@
 import React, { useRef, } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-function HomeSection() {
+export const Home = () => {
   const homeRef = useRef(null);
   const isHomeInView = useInView(homeRef, { threshold: 0.2 })
 
@@ -23,7 +23,7 @@ function HomeSection() {
         <div className='absolute right-0 top-0 w-1/2 h-full z-0 bg-gradient-to-r from-white via-purple-100 to-blue-100'>
         </div>
         <div className="w-2/3 mx-auto relative z-10" id='home'>
-          <div ref={homeRef} className="flex justify-around items-center h-fit my-15">
+          <div ref={homeRef} className="flex justify-between items-center h-fit my-15">
             <motion.div
               initial={{ x: -80, opacity: 0, scale: 0.95 }}
               animate={isHomeInView ? { x: 0, opacity: 1, scale: 1 } : { x: -80, opacity: 0, scale: 0.95 }}
@@ -59,5 +59,3 @@ function HomeSection() {
     </>
   )
 }
-
-export default HomeSection
