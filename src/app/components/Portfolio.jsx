@@ -7,19 +7,26 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
 const ProjectCard = ({ project, index }) => {
   const cardRef = useRef(null)
-  const isCardInView = useInView(cardRef, { thershold: 0.2})
-  const isRightCard = index === 0 || index === 3
-  const initialpos = isRightCard
-    ? { x: 100, y: 50, opacity: 0 }
-    : { x: -100, y: 50, opacity: 0 }
+  const isCardInView = useInView(cardRef, { thershold: 0.4 })
+
+  const isLeftCard = index % 3 === 0
+  const isCenterCard = index % 3 === 1
+  const isRightCard = index % 3 === 2
+
+  const finalPos = { x: 0, y: 0, opacity: 1 }
+
+  let initialPos = { x: 0, y: 0, opacity: 0 }
+  if (isLeftCard) initialPos = { x: 120, y: 120, opacity: 0 }   // Left side
+  if (isCenterCard) initialPos = { x: 0, y: 120, opacity: 0 } // Upar
+  if (isRightCard) initialPos = { x: -120, y: 120, opacity: 0 }   // Right side
 
   return (
     <motion.div
       key={index}
       ref={cardRef}
-      initial={initialpos}
-      animate={isCardInView ? { x: 0, y: 0, opacity: 1 } : {}}
-      transition={{ duration: 0.8, ease: easeOut, delay: index * 0.2 }}
+      initial={initialPos}
+      animate={isCardInView ? finalPos : initialPos}
+      transition={{ duration: 0.5, ease: easeOut, delay: index * 0.4 }}
       className='shadow-xl bg-white w-full'
     >
       <img src={project.image} alt={project.title} className='w-full h-40 object-cover rounded-t-lg' />
@@ -107,7 +114,7 @@ export const Portfolio = () => {
           </p>
           <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 mt-10'>
             {projects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index}/>
+              <ProjectCard key={project.id} project={project} index={index} />
             ))}
           </div>
           <h1 className='px-6 py-3 bg-purple-500 text-white rounded-md w-fit text-center mt-10 mx-auto'>
