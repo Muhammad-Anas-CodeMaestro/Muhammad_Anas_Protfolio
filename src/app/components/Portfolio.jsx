@@ -7,7 +7,7 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
 const ProjectCard = ({ project, index }) => {
   const cardRef = useRef(null)
-  const isCardInView = useInView(cardRef, { thershold: 0.4 })
+  const isCardInView = useInView(cardRef, { thershold: 0.2 })
 
   const isLeftCard = index % 3 === 0
   const isCenterCard = index % 3 === 1
