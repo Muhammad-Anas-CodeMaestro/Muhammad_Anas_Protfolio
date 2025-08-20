@@ -4,6 +4,7 @@ import { AboutMe } from "./components/AboutMe";
 import { Skills } from "./components/Skills";
 import { Portfolio } from "./components/Portfolio";
 import { WorkTogether } from "./components/WorkTogether";
+import { Service } from "./components/Service";
 
 export default function page() {
   return (
@@ -14,6 +15,7 @@ export default function page() {
       <Skills />
       <Portfolio />
       <WorkTogether />
+      <Service />
     </>
   );
 }

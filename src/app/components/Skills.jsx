@@ -18,8 +18,8 @@ export const Skills = () => {
     { name: "Node.js", percentage: "50%" },
     { name: "Express.js", percentage: "50%" },
     { name: "MongoDB", percentage: "40%" },
-    { name: "Bootstrap", percentage: "80%" },
-    { name: "Tailwind CSS", percentage: "85%" }
+    { name: "Tailwind CSS", percentage: "85%" },
+    { name: "React Native", percentage: "65%" }
   ];
 
   return (
