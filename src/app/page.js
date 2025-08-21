@@ -5,6 +5,7 @@ import { Skills } from "./components/Skills";
 import { Portfolio } from "./components/Portfolio";
 import { WorkTogether } from "./components/WorkTogether";
 import { Service } from "./components/Service";
+import { Contact } from "./components/Contact";
 
 export default function page() {
   return (
@@ -16,6 +17,7 @@ export default function page() {
       <Portfolio />
       <WorkTogether />
       <Service />
+      <Contact />
     </>
   );
 }
