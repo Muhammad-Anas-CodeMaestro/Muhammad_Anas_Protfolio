@@ -19,4 +19,12 @@ body {
   animation: progress 0.3s ease-in-out forwards;
 }
 
+.contact-input{
+  color: #6b7280; /* Tailwind's gray-500 */
+  border-bottom: 4px solid #d1d5db; /* Tailwind's gray-100 */
+  border-radius: 4px;
+  padding: 0.5rem 0.25rem;
+  width: 100%;
+}
+
 @import "tailwindcss"

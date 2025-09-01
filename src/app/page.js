@@ -6,8 +6,9 @@ import { Portfolio } from "./components/Portfolio";
 import { WorkTogether } from "./components/WorkTogether";
 import { Service } from "./components/Service";
 import { Contact } from "./components/Contact";
+import { Footer } from "./components/Footer";
 
-export default function page() {
+export default function page () {
   return (
     <>
       <Navbar />
@@ -18,6 +19,7 @@ export default function page() {
       <WorkTogether />
       <Service />
       <Contact />
+      <Footer />
     </>
   );
 }
