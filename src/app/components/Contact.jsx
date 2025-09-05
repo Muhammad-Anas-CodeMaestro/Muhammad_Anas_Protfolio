@@ -4,12 +4,48 @@ import { faFacebookF, faGithub, faInstagram, faLinkedinIn } from "@fortawesome/f
 import { faAddressBook, faEnvelope, } from "@fortawesome/free-regular-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { motion, useInView } from "framer-motion";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { faPaperPlane } from "@fortawesome/free-regular-svg-icons/faPaperPlane";
+import { toast } from "react-toastify";
 
 export const Contact = () => {
   const aboutRef = useRef(null);
   const isAboutInView = useInView(aboutRef, { threshold: 0.2 });
+  const [ formData, setFormData ] = useState({ name: '', email: '', location: '', budget: '', subject: '', message: '' });
+  const [ loading, setLoading ] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value})
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true)
+    toast.dismiss()
+    toast.success("Message queued! I'll get back to you soon.")
+    setFormData({ name: '', email: '', location: '', budget: '', subject: '', message: '' })
+    if (loading) return;
+    setLoading(false)
+    
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      })
+
+      const data = await res.json()
+      if (!data.success) {
+        toast.dismiss();
+        toast.error("Message could not be sent. Please try again later.");
+      }
+    } catch (error) {
+      toast.dismiss();
+      toast.error("An error occurred. Please try again later.")
+    } finally {
+      setLoading(false)
+    }
+  }
 
   const personalDetails = [
     {
@@ -37,6 +73,37 @@ export const Contact = () => {
       icon: faLinkedinIn,
       link: 'https://www.linkedin.com/in/muhammad-anas-72aa05260/'
     }
+  ]
+
+  const foamHeading = [
+    {
+      name: 'name',
+      label: 'Name*',
+      type: 'text'
+    },
+    {
+      name: 'email',
+      label: 'Email*',
+      type: 'email'
+    },
+    {
+      name: 'location',
+      label: 'Location*',
+      type: 'text'
+    },
+  ]
+
+  const secondHeading = [
+    {
+      name: 'budget',
+      label: 'Budget*',
+      type: 'text'
+    },
+    {
+      name: 'subject',
+      label: 'Subject*',
+      type: 'text'
+    },
   ]
 
   return (
@@ -84,16 +151,14 @@ export const Contact = () => {
             className='w-5/12'
           >
             <h1 className="text-gray-400 text-sm">Ready to bring your ideas to life? Fill out the form and let's get started!</h1>
-            <form action="" className="space-y-3 w-full mt-5 ">
-              {[
-                { name: 'name', label: 'Name*', type: 'text' },
-                { name: 'email', label: 'Email*', type: 'email' },
-                { name: 'location', label: 'Location*', type: 'text' },
-              ].map((field, i) => (
+            <form onSubmit={handleSubmit} className="space-y-3 w-full mt-5 ">
+              {foamHeading.map((field, i) => (
                 <div className="relative" key={i}>
                   <input
                     type={field.type}
                     name={field.name}
+                    value={formData[field.name]}
+                    onChange={handleChange}
                     id={field.name}
                     placeholder={field.label}
                     className="peer w-full border-b-2 border-gray-300 bg-transparent py-3 placeholder-transparent focus:border-purple-500 focus:outline-none"
@@ -102,30 +167,29 @@ export const Contact = () => {
                   <label
                     htmlFor={field.name}
                     className="absolute left-0 top-3 text-gray-400 transition-all
-                    peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:top-[-8px] peer-focus:text-xs peer-focus:text-purple-500"
+                    peer-placeholder-shown:top-3 peer-placeholder-shown:text-base 
+                    peer-[&:not(:placeholder-shown)]:top-[-8px] peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-purple-500"
                   >
                     {field.label}
                   </label>
                 </div>
               ))}
               <div className="flex space-x-4">
-                {[
-                  { name: 'budget', label: 'Budget*' },
-                  { name: 'subject', label: 'Subject*' },
-                ].map((field, i) => (
+                {secondHeading.map((field, i) => (
                   <div className="relative w-1/2" key={i}>
                     <input
-                      type="text"
+                      type={field.type}
                       name={field.name}
                       id={field.name}
-                      placeholder={field.label}
-                      className="peer w-full border-b-2 border-gray-300 bg-transparent py-3 placeholder-transparent focus:border-purple-500 focus:outline-none"
+                      value={formData[field.name]}
+                      onChange={handleChange}
+                      className="peer w-full border-b-2 border-gray-300 py-3 focus:border-purple-500 focus:outline-none"
                       required
                     />
                     <label
                       htmlFor={field.name}
                       className="absolute left-0 top-3 text-gray-400 transition-all
-                    peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-[-8px] peer-focus:text-xs peer-focus:text-purple-500"
+                    peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:top-[-8px] peer-focus:text-xs peer-focus:text-purple-500 peer-valid:top-[-8px] peer-valid:text-xs peer-valid:text-purple-500"
                     >
                       {field.label}
                     </label>
@@ -137,14 +201,15 @@ export const Contact = () => {
                   name="message"
                   id="message"
                   placeholder="Message*"
+                  value={formData.message}
+                  onChange={handleChange}
                   className="peer w-full border-b-2 border-gray-300 bg-transparent py-3 placeholder-transparent focus:border-purple-500 focus:outline-none"
-                  rows="4"
                   required
                 ></input>
                 <label
                   htmlFor="message"
                   className="absolute left-0 top-3 text-gray-400 transition-all
-                  peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-[-8px] peer-focus:text-xs peer-focus:text-purple-500"
+                  peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:top-[-8px]peer-focus:text-xs peer-focus:text-purple-500 peer-valid:top-[-8px] peer-valid:text-xs peer-valid:text-purple-500"
                 >
                   Message*
                 </label>
@@ -153,7 +218,7 @@ export const Contact = () => {
                 type="submit"
                 className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-6 rounded-md w-fit transition-all mt-3 cursor-pointer"
               >
-                Submit <FontAwesomeIcon icon={faPaperPlane} />
+               {loading ? "Sending..." : <>Send <FontAwesomeIcon icon={faPaperPlane} /></>} 
               </button>
             </form>
           </motion.div>

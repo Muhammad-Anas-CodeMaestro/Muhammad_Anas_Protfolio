@@ -7,6 +7,7 @@ import { WorkTogether } from "./components/WorkTogether";
 import { Service } from "./components/Service";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
+import { ToastContainer } from "react-toastify";
 
 export default function page () {
   return (
@@ -20,6 +21,10 @@ export default function page () {
       <Service />
       <Contact />
       <Footer />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={1500}
+      />
     </>
   );
 }

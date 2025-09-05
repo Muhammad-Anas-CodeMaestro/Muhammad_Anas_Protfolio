@@ -4,11 +4,33 @@ import { motion, useInView } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF, faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { toast, } from "react-toastify";
 
 export const AboutMe = () => {
   const aboutRef = useRef(null);
   const isAboutInView = useInView(aboutRef, { threshold: 0.2 });
+  const handleClick = async () => {
+    try {
+      const res = await fetch("/Anas_CV.pdf")
+      const blob = await res.blob();
 
+      const link = window.URL.createObjectURL(blob)
+      const a = document.createElement("a")
+      a.href = link
+      a.download = "Anas_CV.pdf"
+      document.body.appendChild(a)
+      a.click()
+      a.remove()
+      window.URL.revokeObjectURL(link)
+
+      toast.dismiss()
+      toast.success("CV Downloaded Successfully!")
+
+    } catch (error) {
+      toast.dismiss()
+      toast.error("Failed to Download CV!" + error.message)
+    }
+  }
   return (
     <>
       <div className="relative w-full flex items-center justify-center bg-white" id="about">
@@ -44,14 +66,13 @@ export const AboutMe = () => {
               </p>
               <div className='flex items-center'>
                 <a href="https://github.com/Muhammad-Anas-CodeMaestro?tab=repositories" target='_blank' className='px-6 py-3 bg-purple-500 text-white rounded-md w-fit mr-2'>My Projects</a>
-                <motion.div
+                <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                >
-                  <button className='px-6 py-3 bg-white text-purple-500 w-fit border border-purple-500 rounded-md cursor-pointer'>
-                    <FontAwesomeIcon icon={faDownload} /> Download CV
-                  </button>
-                </motion.div>
+                  className='px-6 py-3 bg-white text-purple-500 w-fit border border-purple-500 rounded-md cursor-pointer'
+                  onClick={handleClick}>
+                  <FontAwesomeIcon icon={faDownload} /> Download CV
+                </motion.button>
               </div>
             </motion.div>
           </div>
