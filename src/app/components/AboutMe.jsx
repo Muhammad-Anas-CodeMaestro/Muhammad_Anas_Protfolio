@@ -47,9 +47,15 @@ export const AboutMe = () => {
               className='w-fit relative mx-auto'>
               <img src="/Graybg.jpg" alt="AnasPicture" width={300} className='bg-transparent rounded-md' />
               <div className='flex items-center justify-center bg-white text-purple-500 text-lg px-3 py-2 absolute transform -translate-x-1/2 translate-y-1/2 left-1/2 bottom-0 space-x-3 shadow-md'>
-                <FontAwesomeIcon icon={faFacebookF} className='pr-3 hover:scale-110 transition-transform duration-300 cursor-pointer' />
-                <FontAwesomeIcon icon={faLinkedinIn} className='p-3 bg-purple-500 text-white hover:scale-110 transition-transform duration-300 cursor-pointer' />
-                <FontAwesomeIcon icon={faGithub} className='pl-3 hover:scale-110 transition-transform duration-300 cursor-pointer' />
+              <a href="https://www.facebook.com/profile.php?id=100017561626556" target="_blank">
+                <FontAwesomeIcon icon={faFacebookF} className='px-3 hover:scale-110 transition-transform duration-300 cursor-pointer' />
+              </a>
+              <a href="https://www.linkedin.com/in/muhammad-anas-72aa05260/" target="_blank">
+                <FontAwesomeIcon icon={faLinkedinIn} className='p-3 bg-purple-500 text-white hover:scale-100 transition-transform duration-300 cursor-pointer' />
+              </a>
+              <a href="https://github.com/Muhammad-Anas-CodeMaestro" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faGithub} className='px-3 hover:scale-110 transition-transform duration-300 cursor-pointer' />
+              </a>
               </div>
             </motion.div>
             <motion.div

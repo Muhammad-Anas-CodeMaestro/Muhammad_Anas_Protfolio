@@ -3,6 +3,7 @@ import React, { useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { motion, useInView } from 'framer-motion';
+import { Link } from 'react-scroll';
 
 export const WorkTogether = () => {
   const workViewRef = useRef(null);
@@ -37,8 +38,22 @@ export const WorkTogether = () => {
           whileTap={{ scale: 0.95 }}
           viewport={{ once: true }}
           style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+        >
+
+          <Link
+            to="contact"
+            smooth={true}
+            duration={900}
+            offset={-70}
           >
-          <a href="" className='px-6 py-3 bg-purple-500 w-fit rounded-md text-center'>Let's Work Togetter <FontAwesomeIcon icon={faArrowRight} className='text-sm' /></a>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-2 text-white bg-purple-500 rounded-md shadow-md w-fit cursor-pointer"
+            >
+              Let's Work Togetter <FontAwesomeIcon icon={faArrowRight} className='text-sm' />
+            </motion.div>
+          </Link>
         </motion.button>
       </div>
     </>

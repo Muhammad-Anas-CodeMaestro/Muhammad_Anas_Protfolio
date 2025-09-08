@@ -1,6 +1,7 @@
 'use client'
 import React, { useRef, } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { Link } from 'react-scroll';
 
 export const Home = () => {
   const homeRef = useRef(null);
@@ -36,7 +37,20 @@ export const Home = () => {
                   Front-End Developer
                 </span> trying my best to build clean, responsive, and, of course, accessible user interface. Bringing ideas to the visions of interactivity with pixel perfect websites.
               </p>
-              <h3 className="px-5 py-2 bg-purple-500 text-white rounded-md w-fit cursor-pointer">Say Hello!</h3>
+              <Link
+                to="contact"
+                smooth={true}
+                duration={800}
+                offset={-70}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-6 py-2 text-white bg-purple-500 rounded-md shadow-md w-fit cursor-pointer"
+                >
+                  Say Hi!
+                </motion.div>
+              </Link>
               <div className="flex justify-around items-center mt-20 mb-10 text-center ">
                 {data.map((item, index) => (
                   <div key={index} className="bg-gray-200 w-full mx-0.5 py-3">

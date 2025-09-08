@@ -135,11 +135,11 @@ export const Contact = () => {
             ))}
             <div className="w-3/4 flex text-purple-500 text-lg mt-5 items-center justify-center">
               <a href="https://www.facebook.com/profile.php?id=100017561626556" target="_blank">
-                <FontAwesomeIcon icon={faFacebookF} className='bg-purple-500 text-white p-2 cursor-pointer' />
+                <FontAwesomeIcon icon={faFacebookF} className='bg-purple-500 text-white p-2 cursor-pointer hover:scale-110 transition-transform duration-300' />
               </a>
               {socialLinks.map((social, index) => (
                 <a href={social.link} target="_blank" key={index}>
-                  <FontAwesomeIcon icon={social.icon} className='p-2 mx-3 cursor-pointer' />
+                  <FontAwesomeIcon icon={social.icon} className='p-2 mx-3 cursor-pointer hover:scale-110 transition-transform duration-300' />
                 </a>
               ))}
             </div>

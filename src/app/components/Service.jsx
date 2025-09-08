@@ -1,6 +1,7 @@
 'use client'
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { Link } from "react-scroll";
 
 export const Service = () => {
   const leftRef = useRef(null);
@@ -47,13 +48,20 @@ export const Service = () => {
               Native and having some experience in API integration and state
               management.
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 text-white bg-purple-500 rounded-md shadow-md"
+            <Link
+              to="contact"
+              smooth={true}
+              duration={900}
+              offset={-70}
             >
-              Say Hi!
-            </motion.button>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-2 text-white bg-purple-500 rounded-md shadow-md w-fit cursor-pointer"
+              >
+                Say Hi!
+              </motion.div>
+            </Link>
           </motion.div>
           <motion.div
             ref={workRef}
@@ -78,7 +86,6 @@ export const Service = () => {
                 and handover Experience in Next.js.
               </p>
             </motion.div>
-
             {work.map((detail, index) => (
               <motion.div
                 key={index}
