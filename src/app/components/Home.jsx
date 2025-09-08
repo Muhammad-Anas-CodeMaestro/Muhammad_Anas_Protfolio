@@ -30,7 +30,7 @@ export const Home = () => {
               animate={isHomeInView ? { x: 0, opacity: 1, scale: 1 } : { x: -80, opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.5, type: 'spring', stiffness: 15, damping: 10, }}
               className="w-1/2">
-              <h1 className="text-5xl text-gray-900 py-5">Hello, I'm Muhammad Anas</h1>
+              <h1 className="text-5xl font-bold text-gray-900 py-5">Hello, I'm Muhammad Anas</h1>
               <p className="w-full text-gray-600 text-sm drop-shadow-lg pb-5">
                 I am a  <span className="relative font-semibold text-gray-900">
                   <span className="absolute inset-x-0 bottom-0 h-1/2 bg-pink-200 z-[-1]"></span>
