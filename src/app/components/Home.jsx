@@ -32,14 +32,11 @@ export const Home = () => {
             <motion.div
               initial={{ x: -80, opacity: 0, scale: 0.95 }}
               animate={isHomeInView ? { x: 0, opacity: 1, scale: 1 } : { x: -80, opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.5, type: 'spring', stiffness: 15, damping: 10 }}
-              className="w-full lg:w-1/2 text-center lg:text-left"
-            >
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 py-5">
-                Hello, I'm Muhammad Anas
-              </h1>
-              <p className="w-full text-gray-600 text-sm md:text-base drop-shadow-lg pb-5">
-                I am a <span className="relative font-semibold text-gray-900">
+              transition={{ duration: 0.5, type: 'spring', stiffness: 15, damping: 10, }}
+              className="w-1/2">
+              <h1 className="text-5xl text-gray-900 py-5">Hello, I'm Muhammad Anas</h1>
+              <p className="w-full text-gray-600 text-sm drop-shadow-lg pb-5">
+                I am a  <span className="relative font-semibold text-gray-900">
                   <span className="absolute inset-x-0 bottom-0 h-1/2 bg-pink-200 z-[-1]"></span>
                   Front-End Developer
                 </span> trying my best to build clean, responsive, and, of course, accessible user interface. 

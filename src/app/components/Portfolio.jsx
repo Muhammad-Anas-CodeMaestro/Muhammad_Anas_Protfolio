@@ -26,8 +26,8 @@ const ProjectCard = ({ project, index }) => {
       ref={cardRef}
       initial={initialPos}
       animate={isCardInView ? finalPos : initialPos}
-      transition={{ duration: 0.6, ease: easeOut, delay: index * 0.2 }}
-      className="shadow-xl bg-white w-full rounded-lg overflow-hidden"
+      transition={{ duration: 0.5, ease: easeOut, delay: index * 0.4 }}
+      className='shadow-xl bg-white w-full'
     >
       <img
         src={project.image}
