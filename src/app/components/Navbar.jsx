@@ -20,9 +20,9 @@ export const Navbar = () => {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeInOut' }}
-      className="sticky top-0 z-50 bg-white shadow-md"
+      className="sticky top-0 z-50 bg-white shadow-md overflow-x-hidden"
     >
-      <div className="flex justify-between items-center px-6 md:px-12 h-16">
+      <div className="flex justify-between items-center px-10 md:px-50 h-16">
         {/* Logo */}
         <div className="flex items-center">
           <motion.h3

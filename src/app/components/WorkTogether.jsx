@@ -11,7 +11,7 @@ export const WorkTogether = () => {
 
   return (
     <>
-      <div className='bg-gray-900 p-6 sm:p-10 mx-auto text-white' ref={workViewRef}>
+      <div className='bg-gray-900 p-6 sm:p-10 mx-auto text-white overflow-x-hidden' ref={workViewRef}>
         <motion.h1
           className='text-lg sm:text-2xl font-semibold w-11/12 sm:w-3/12 mx-auto text-center'
           initial={{ y: 50, opacity: 0 }}

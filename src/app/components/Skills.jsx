@@ -24,7 +24,7 @@ export const Skills = () => {
 
   return (
     <>
-      <div className="relative w-full min-h-fit flex items-center justify-center bg-white" id='skills'>
+      <div className="relative w-full min-h-fit flex items-center justify-center bg-white overflow-x-hidden" id='skills'>
         <div className='absolute bottom-0 w-full h-full bg-gray-200 z-0'></div>
         <div className='w-11/12 md:w-4/5 lg:w-2/3 mx-auto relative z-10 mt-5'>
           <h1 className="text-2xl font-semibold text-gray-900 w-fit mx-auto">My Skills</h1>

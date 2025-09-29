@@ -120,7 +120,7 @@ export const Portfolio = () => {
   ]
 
   return (
-    <div id="project" className="w-full min-h-fit bg-white">
+    <div id="project" className="w-full min-h-fit bg-white overflow-x-hidden">
       <motion.div
         className="w-2/3 sm:w-5/6 md:w-3/4 mx-auto my-10"
         initial={{ opacity: 0, scale: 0.95 }}

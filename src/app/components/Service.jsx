@@ -24,7 +24,7 @@ export const Service = () => {
 
   return (
     <>
-      <div id="services" className="bg-gray-200">
+      <div id="services" className="bg-gray-200 overflow-x-hidden">
         <div className="w-full flex flex-col lg:flex-row justify-around items-center py-17 px-5 lg:px-35">
           <motion.div
             ref={leftRef}

@@ -17,7 +17,7 @@ export const Footer = () => {
 
   return (
     <>
-      <div className='bg-gray-800 flex justify-center items-center'>
+      <div className='bg-gray-800 flex justify-center items-center overflow-x-hidden'>
         <div className='w-full lg:w-3/4 mx-auto py-10 px-5 flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-0'>
           <div className="flex items-center">
             <motion.h3
