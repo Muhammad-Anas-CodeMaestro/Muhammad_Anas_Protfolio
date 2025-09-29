@@ -17,8 +17,8 @@ export const Footer = () => {
 
   return (
     <>
-      <div className='bg-gray-800 flex justify-between items-center'>
-        <div className='w-3/4 mx-auto py-18 flex justify-between items-center'>
+      <div className='bg-gray-800 flex justify-center items-center'>
+        <div className='w-full lg:w-3/4 mx-auto py-10 px-5 flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-0'>
           <div className="flex items-center">
             <motion.h3
               whileHover={{ scale: 1.1, rotate: 2 }}
@@ -29,7 +29,7 @@ export const Footer = () => {
             </motion.h3>
             <h3 className="text-white text-2xl font-bold">Anas</h3>
           </div>
-          <div className="w-1/2 flex justify-between">
+          <div className="w-full lg:w-1/2 flex flex-wrap justify-center lg:justify-between gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
@@ -49,7 +49,7 @@ export const Footer = () => {
               </Link>
             ))}
           </div>
-          <div>
+          <div className="text-center lg:text-right">
             <h3 className='text-white'>Copyright &copy; {year} </h3>
           </div>
         </div>

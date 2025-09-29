@@ -25,14 +25,14 @@ export const Service = () => {
   return (
     <>
       <div id="services" className="bg-gray-200">
-        <div className="w-full flex justify-around items-center py-17 px-35">
+        <div className="w-full flex flex-col lg:flex-row justify-around items-center py-17 px-5 lg:px-35">
           <motion.div
             ref={leftRef}
             initial={{ x: -80, opacity: 0 }}
             animate={isLeftInView ? { x: 0, opacity: 1 } : { x: -80, opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeInOut", delay: 0.2 }}
             viewport={{ once: true }}
-            className="w-5/12"
+            className="w-full lg:w-5/12 mb-10 lg:mb-0"
           >
             <h1 className="text-3xl text-gray-900 font-semibold pb-4">
               What I do?
@@ -69,7 +69,7 @@ export const Service = () => {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeInOut", delay: 0.2 }}
             viewport={{ once: true }}
-            className="w-5/12"
+            className="w-full lg:w-5/12"
           >
             <motion.div
               initial={{ y: 30, opacity: 0 }}

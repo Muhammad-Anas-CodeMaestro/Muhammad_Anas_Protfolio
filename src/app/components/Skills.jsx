@@ -25,12 +25,14 @@ export const Skills = () => {
   return (
     <>
       <div className="relative w-full min-h-fit flex items-center justify-center bg-white" id='skills'>
-        <div className='absolute bottom-0 w-full h-full bg-gray-200 z-0'>
-        </div>
-        <div className='w-2/3 mx-auto relative z-10 mt-5'>
+        <div className='absolute bottom-0 w-full h-full bg-gray-200 z-0'></div>
+        <div className='w-11/12 md:w-4/5 lg:w-2/3 mx-auto relative z-10 mt-5'>
           <h1 className="text-2xl font-semibold text-gray-900 w-fit mx-auto">My Skills</h1>
-          <div ref={skillRef} className='flex justify-around bg-white rounded-xl py-4 my-4'>
-            <div className='w-5/12'>
+          <div 
+            ref={skillRef} 
+            className='flex flex-col lg:flex-row justify-around bg-white rounded-xl py-4 my-4'
+          >
+            <div className='w-full lg:w-5/12'>
               {skillLeft.map((skill, index) => (
                 <div key={index} className="my-9">
                   <span className="block text-lg font-semibold text-gray-700">{skill.name}</span>
@@ -55,7 +57,7 @@ export const Skills = () => {
                 </div>
               ))}
             </div>
-            <div className='w-5/12'>
+            <div className='w-full lg:w-5/12'>
               {skillRight.map((skill, index) => (
                 <div key={index} className="my-9">
                   <span className="block text-lg font-semibold text-gray-700">{skill.name}</span>

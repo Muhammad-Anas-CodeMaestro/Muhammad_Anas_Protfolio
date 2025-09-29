@@ -109,7 +109,7 @@ export const Contact = () => {
   return (
     <>
       <div className="relative w-full h-full bg-white" id="contact">
-        <div ref={aboutRef} className="w-2/3 mx-auto relative z-10 flex justify-around items-center shadow-2xl h-11/12 rounded-lg mt-2 py-10">
+        <div ref={aboutRef} className="w-2/3  mx-auto relative z-10 flex justify-around items-center shadow-2xl h-11/12 rounded-lg mt-2 py-10">
           <motion.div
             initial={{ x: -80, opacity: 0, scale: 0.95 }}
             animate={isAboutInView ? { x: 0, opacity: 1, scale: 1 } : { x: -80, opacity: 0, scale: 0.95 }}
