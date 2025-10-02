@@ -78,12 +78,11 @@ export const Contact = () => {
   ]
 
   return (
-    <div className="relative w-full h-full bg-white" id="contact">
+    <div className="w-full bg-white overflow-x-hidden" id="contact">
       <div
         ref={aboutRef}
-        className="max-w-6xl mx-auto relative z-10 flex flex-col md:flex-row justify-between items-start shadow-2xl rounded-lg mt-6 p-6 md:p-10 gap-10"
+        className="max-w-5xl mx-auto relative z-10 flex flex-col md:flex-row justify-between items-start shadow-2xl rounded-lg mt-6 p-6 md:p-10 gap-10"
       >
-        {/* Left Side */}
         <motion.div
           initial={{ x: -80, opacity: 0, scale: 0.95 }}
           animate={isAboutInView ? { x: 0, opacity: 1, scale: 1 } : { x: -80, opacity: 0, scale: 0.95 }}
@@ -92,7 +91,6 @@ export const Contact = () => {
         >
           <h2 className="text-2xl md:text-3xl text-gray-900 font-semibold">Let's discuss your project</h2>
           <p className="pt-3 text-sm text-gray-500">Please provide the details of your project, and I will get back to you shortly.</p>
-
           <div className="flex p-4 w-full bg-white rounded-md shadow-md mt-5 items-center">
             <FontAwesomeIcon icon={faLocationDot} className="p-3 text-white bg-purple-500 rounded-md mr-5 text-lg" />
             <div>
@@ -100,7 +98,6 @@ export const Contact = () => {
               <h2 className="text-gray-900 text-sm font-semibold pt-2">Karachi, Pakistan</h2>
             </div>
           </div>
-
           {personalDetails.map((detail, index) => (
             <div key={index} className="flex p-4 w-full bg-white my-5 items-center shadow-sm rounded-md">
               <FontAwesomeIcon icon={detail.icon} className="p-3 text-purple-500 bg-gray-100 rounded-md mr-5 text-lg" />
@@ -110,8 +107,6 @@ export const Contact = () => {
               </div>
             </div>
           ))}
-
-          {/* Social Icons */}
           <div className="flex text-purple-500 text-lg mt-5 items-center space-x-5">
             <a href="https://www.facebook.com/profile.php?id=100017561626556" target="_blank">
               <FontAwesomeIcon icon={faFacebookF} className="bg-purple-500 text-white p-2 rounded-md cursor-pointer hover:scale-110 transition-transform duration-300" />
@@ -123,8 +118,6 @@ export const Contact = () => {
             ))}
           </div>
         </motion.div>
-
-        {/* Right Side Form */}
         <motion.div
           initial={{ x: 80, opacity: 0 }}
           animate={isAboutInView ? { x: 0, opacity: 1, scale: 1 } : { x: 80, opacity: 0, scale: 0.95 }}
@@ -155,8 +148,6 @@ export const Contact = () => {
                 </label>
               </div>
             ))}
-
-            {/* Budget + Subject side by side on desktop */}
             <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
               {secondHeading.map((field, i) => (
                 <div className="relative w-full md:w-1/2" key={i}>
@@ -179,8 +170,6 @@ export const Contact = () => {
                 </div>
               ))}
             </div>
-
-            {/* Message Field */}
             <div className="relative">
               <textarea
                 name="message"
@@ -200,7 +189,6 @@ export const Contact = () => {
                 Message*
               </label>
             </div>
-
             <button
               type="submit"
               className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-6 rounded-md w-full md:w-auto transition-all mt-3"

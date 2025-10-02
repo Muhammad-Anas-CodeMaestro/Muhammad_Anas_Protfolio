@@ -22,8 +22,7 @@ export const Navbar = () => {
       transition={{ duration: 0.6, ease: 'easeInOut' }}
       className="sticky top-0 z-50 bg-white shadow-md overflow-x-hidden"
     >
-      <div className="flex justify-between items-center px-10 md:px-50 h-16">
-        {/* Logo */}
+      <div className="flex justify-between items-center px-10 md:px-48 h-16">
         <div className="flex items-center">
           <motion.h3
             whileHover={{ scale: 1.1, rotate: 2 }}
@@ -34,7 +33,6 @@ export const Navbar = () => {
           </motion.h3>
           <h3 className="text-gray-900 text-2xl font-bold">Anas</h3>
         </div>
-        {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 items-center text-lg font-medium">
           {navLinks.map((link) => (
             <Link
@@ -53,7 +51,6 @@ export const Navbar = () => {
               </motion.div>
             </Link>
           ))}
-          {/* Contact Button */}
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
               to="contact"
@@ -66,7 +63,6 @@ export const Navbar = () => {
             </Link>
           </motion.div>
         </div>
-        {/* Mobile Hamburger */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden p-2 rounded-md text-gray-800"
@@ -74,7 +70,6 @@ export const Navbar = () => {
           {isMenuOpen ? <XIcon className="size-6" /> : <MenuIcon className="size-6" />}
         </button>
       </div>
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -82,7 +77,7 @@ export const Navbar = () => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
-            className="md:hidden fixed top-0 right-0 w-2/3 h-full bg-white shadow-lg z-40 flex flex-col p-6 space-y-6"
+            className="md:hidden fixed top-0 right-0 w-2/3 h-full bg-white shadow-lg z-40 flex flex-col p-6 space-y-6 overflow-x-hidden"
           >
             {navLinks.map((link) => (
               <Link

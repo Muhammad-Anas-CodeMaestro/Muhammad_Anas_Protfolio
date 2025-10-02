@@ -37,17 +37,14 @@ export const AboutMe = () => {
       className="relative w-full flex items-center justify-center bg-white overflow-x-hidden"
       id="about"
     >
-      {/* background gradients */}
       <div className="absolute right-0 bottom-0 w-1/2 h-full z-0 bg-gradient-to-bl from-blue-100 via-white to-white"></div>
       <div className="absolute left-0 bottom-0 w-1/2 h-3/6 z-0 bg-gradient-to-tr from-orange-100 via-white to-white"></div>
 
-      {/* main container */}
       <div className="w-11/12 md:w-4/5 lg:w-2/3 mx-auto relative z-10">
         <div
           ref={aboutRef}
           className="flex flex-col lg:flex-row shadow-2xl px-6 md:px-12 py-10 md:py-15 my-10 bg-gray-50 rounded-lg items-center gap-8 lg:gap-0"
         >
-          {/* Left Image */}
           <motion.div
             initial={{ x: -80, opacity: 0, scale: 0.95 }}
             animate={
@@ -101,8 +98,6 @@ export const AboutMe = () => {
               </a>
             </div>
           </motion.div>
-
-          {/* Right Content */}
           <motion.div
             initial={{ x: 80, opacity: 0 }}
             animate={

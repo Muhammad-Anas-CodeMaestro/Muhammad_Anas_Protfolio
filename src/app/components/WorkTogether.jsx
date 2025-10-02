@@ -11,9 +11,9 @@ export const WorkTogether = () => {
 
   return (
     <>
-      <div className='bg-gray-900 p-6 sm:p-10 mx-auto text-white overflow-x-hidden' ref={workViewRef}>
+      <div className='w-full bg-gray-900 p-6 sm:p-10 mx-auto text-white overflow-x-hidden' ref={workViewRef}>
         <motion.h1
-          className='text-lg sm:text-2xl font-semibold w-11/12 sm:w-3/12 mx-auto text-center'
+          className='max-w-5xl text-lg sm:text-2xl font-semibold sm:w-3/12 mx-auto text-center'
           initial={{ y: 50, opacity: 0 }}
           animate={isWorkInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
@@ -31,7 +31,7 @@ export const WorkTogether = () => {
           Together we can make your vision reality in an efficient and creative development.
         </motion.p>
         <motion.button
-          className='cursor-pointer w-full sm:w-fit mx-auto flex justify-center'
+          className='cursor-pointer w-fit mx-auto flex justify-center'
           initial={{ scale: 0.8, opacity: 0 }}
           animate={isWorkInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}

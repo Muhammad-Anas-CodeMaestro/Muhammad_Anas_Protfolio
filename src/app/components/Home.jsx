@@ -15,16 +15,12 @@ export const Home = () => {
 
   return (
     <div className="relative w-full min-h-fit flex items-center justify-center bg-white overflow-x-hidden">
-      {/* background gradient */}
       <div className='absolute right-0 top-0 w-1/2 h-full z-0 bg-gradient-to-r from-white via-purple-100 to-blue-100'></div>
-      
-      {/* main container */}
       <div className="w-11/12 md:w-4/5 lg:w-2/3 mx-auto relative z-10" id='home'>
         <div
           ref={homeRef}
           className="flex flex-col-reverse lg:flex-row justify-between items-center h-fit my-10 lg:my-15 gap-10 lg:gap-0"
         >
-          {/* Left Content */}
           <motion.div
             initial={{ x: -80, opacity: 0, scale: 0.95 }}
             animate={isHomeInView ? { x: 0, opacity: 1, scale: 1 } : { x: -80, opacity: 0, scale: 0.95 }}
@@ -43,8 +39,6 @@ export const Home = () => {
               trying my best to build clean, responsive, and accessible user interfaces. 
               Bringing ideas to life with pixel-perfect websites.
             </p>
-
-            {/* CTA button */}
             <Link to="contact" smooth={true} duration={800} offset={-70}>
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -54,8 +48,6 @@ export const Home = () => {
                 Say Hi!
               </motion.div>
             </Link>
-
-            {/* Info boxes */}
             <div className="flex flex-col sm:flex-row justify-around items-center mt-10 lg:mt-20 mb-10 text-center gap-3 sm:gap-0">
               {data.map((item, index) => (
                 <div key={index} className="bg-gray-200 w-full sm:w-1/3 mx-0.5 py-3 rounded-md">
@@ -65,8 +57,6 @@ export const Home = () => {
               ))}
             </div>
           </motion.div>
-
-          {/* Right Image */}
           <motion.div
             initial={{ x: 80, opacity: 0, scale: 0.95 }}
             animate={isHomeInView ? { x: 0, opacity: 1, scale: 1 } : { x: 80, opacity: 0, scale: 0.95 }}

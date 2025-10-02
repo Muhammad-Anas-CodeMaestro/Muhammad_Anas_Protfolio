@@ -30,7 +30,7 @@ export const Skills = () => {
           <h1 className="text-2xl font-semibold text-gray-900 w-fit mx-auto">My Skills</h1>
           <div 
             ref={skillRef} 
-            className='flex flex-col lg:flex-row justify-around bg-white rounded-xl py-4 my-4'
+            className='flex flex-col lg:flex-row justify-around bg-white rounded-xl px-4 py-4 my-4'
           >
             <div className='w-full lg:w-5/12'>
               {skillLeft.map((skill, index) => (
