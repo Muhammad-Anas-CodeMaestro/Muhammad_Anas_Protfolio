@@ -12,13 +12,13 @@ export const AboutMe = () => {
 
   const handleClick = async () => {
     try {
-      const res = await fetch("/Anas_CV.pdf");
+      const res = await fetch("/Muhammad_Anas_CV_2026.pdf");
       const blob = await res.blob();
 
       const link = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = link;
-      a.download = "Anas_CV.pdf";
+      a.download = "Muhammad_Anas_CV_2026.pdf";
       document.body.appendChild(a);
       a.click();
       a.remove();
