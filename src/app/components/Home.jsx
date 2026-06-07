@@ -32,7 +32,7 @@ export const Home = () => {
             </h1>
             <p className="w-full text-gray-600 text-sm drop-shadow-lg pb-5 text-center lg:text-left">
               I am a  
-              <span className="relative font-semibold text-gray-900">
+              <span className="relative font-semibold text-gray-900 mx-1">
                 <span className="absolute inset-x-0 bottom-0 h-1/2 bg-pink-200 z-[-1]"></span>
                 Front-End Developer
               </span> 
