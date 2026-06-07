@@ -31,7 +31,7 @@ const ProjectCard = ({ project, index }) => {
     >
       <img
         src={project.image}
-        alt={`Preview of ${project.title}`}
+        alt={`Preview of ${ project.title }`}
         className="w-full h-48 sm:h-56 md:h-60 object-cover"
       />
       <div className="p-4 sm:p-5">
@@ -66,6 +66,15 @@ export const Portfolio = () => {
     {
       id: 1,
       category: 'Web Development',
+      title: 'Handbag Store E-commerce App',
+      description: 'A Responsive, React + Vite + Tailwind CSS and a complete cart state management.',
+      image: '/HandBagStore.jpg',
+      github: 'https://github.com/Muhammad-Anas-CodeMaestro/handbag_store',
+      liveDemo: 'https://handbag-store-navy.vercel.app/',
+    },
+    {
+      id: 2,
+      category: 'Web Development',
       title: 'Chat Application',
       description: 'A real-time chat application built with React and Firebase.',
       image: '/ChatApp.jpg',
@@ -73,7 +82,7 @@ export const Portfolio = () => {
       liveDemo: 'https://chat-app-theta-wheat.vercel.app/signin',
     },
     {
-      id: 2,
+      id: 3,
       category: 'Web Development',
       title: 'Online Code Editor',
       description: 'An online code editor that allows users to write, run and download a Code.',
@@ -82,7 +91,7 @@ export const Portfolio = () => {
       liveDemo: 'https://online-code-editor-html-css-javscri.vercel.app/',
     },
     {
-      id: 3,
+      id: 4,
       category: 'Web Development',
       title: 'Recipe App',
       description: 'A recipe application that allows users to see the recipes.',
@@ -91,7 +100,7 @@ export const Portfolio = () => {
       liveDemo: 'https://display-dishes.vercel.app/',
     },
     {
-      id: 4,
+      id: 5,
       category: 'Web Development',
       title: 'To Do List',
       description: 'A simple To Do List application built with HTML, CSS and JavaScript.',
@@ -100,7 +109,7 @@ export const Portfolio = () => {
       liveDemo: 'https://todo-app-nine-wheat.vercel.app/',
     },
     {
-      id: 5,
+      id: 6,
       category: 'Web Development',
       title: 'Age Calculator',
       description: 'A simple age calculator that calculates the age based on the date of birth.',
@@ -108,15 +117,15 @@ export const Portfolio = () => {
       github: 'https://github.com/Muhammad-Anas-CodeMaestro/JavaScript_AgeCalculator',
       liveDemo: 'https://java-script-age-calculator-delta.vercel.app/',
     },
-    {
-      id: 6,
-      category: 'Web Development',
-      title: 'Login Page Design',
-      description: 'A simple login page design using HTML And CSS.',
-      image: '/LoginDesign.jpg',
-      github: 'https://github.com/Muhammad-Anas-CodeMaestro/Login_Page_design',
-      liveDemo: 'https://login-page-design-ecru.vercel.app/',
-    },
+    // {
+    //   id: 7,
+    //   category: 'Web Development',
+    //   title: 'Login Page Design',
+    //   description: 'A simple login page design using HTML And CSS.',
+    //   image: '/LoginDesign.jpg',
+    //   github: 'https://github.com/Muhammad-Anas-CodeMaestro/Login_Page_design',
+    //   liveDemo: 'https://login-page-design-ecru.vercel.app/',
+    // },
   ]
 
   return (
