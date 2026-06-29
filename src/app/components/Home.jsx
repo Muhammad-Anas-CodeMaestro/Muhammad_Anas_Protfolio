@@ -65,7 +65,7 @@ export const Home = () => {
           >
             <img
               src="/DP.jpg"
-              alt="AnasPicture"
+              alt="Portrait of Muhammad Anas"
               className='w-64 sm:w-72 md:w-80 rounded-2xl shadow-lg mx-auto'
             />
           </motion.div>

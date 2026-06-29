@@ -136,9 +136,9 @@ export const Portfolio = () => {
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, type: 'spring', stiffness: 100 }}
       >
-        <h1 className="text-gray-900 text-3xl text-center font-bold">
+        <h2 className="text-gray-900 text-3xl text-center font-bold">
           Portfolio
-        </h1>
+        </h2>
         <p className="text-gray-600 text-center text-sm mt-3">
           Here are some of my projects that I have worked on. You can find more on my GitHub.
         </p>
@@ -147,14 +147,15 @@ export const Portfolio = () => {
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
-        <h1 className="px-6 py-3 bg-purple-500 text-white rounded-md w-fit text-center mt-10 mx-auto">
+        <p className="px-6 py-3 bg-purple-500 text-white rounded-md w-fit text-center mt-10 mx-auto">
           <a
             href="https://github.com/Muhammad-Anas-CodeMaestro?tab=repositories"
             target="_blank"
+            rel="noopener noreferrer"
           >
-            More Project
+            More Projects
           </a>
-        </h1>
+        </p>
       </motion.div>
     </div>
   )

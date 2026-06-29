@@ -63,7 +63,7 @@ export const AboutMe = () => {
           >
             <img
               src="/Graybg.jpg"
-              alt="AnasPicture"
+              alt="Profile photo of Muhammad Anas"
               width={300}
               className="relative rounded-md"
             />

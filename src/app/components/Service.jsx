@@ -33,9 +33,9 @@ export const Service = () => {
           viewport={{ once: true }}
           className="w-full lg:w-5/12 mb-10 lg:mb-0"
         >
-          <h1 className="text-3xl text-gray-900 font-semibold pb-4">
+          <h2 className="text-3xl text-gray-900 font-semibold pb-4">
             What I do?
-          </h1>
+          </h2>
           <p className="text-gray-400 text-sm pb-2">
             My expertise is centered around creating modern web applications
             with React.js, Next.js, and Tailwind CSS. I can create responsive
@@ -76,9 +76,9 @@ export const Service = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="bg-white p-3 border-l-2 border-purple-500 rounded-md shadow-lg"
           >
-            <h2 className="text-gray-900 text-lg pb-2">
+            <h3 className="text-gray-900 text-lg pb-2">
               Website Development
-            </h2>
+            </h3>
             <p className="text-sm text-gray-700">
               I am a Front-End Web Developer that specializes in building
               responsive and digitized websites using React.js, Tailwind CSS
@@ -94,7 +94,7 @@ export const Service = () => {
               viewport={{ once: true }}
               className="bg-white p-3 rounded-md mt-5 shadow-md"
             >
-              <h2 className="text-gray-900 text-lg pb-2">{detail.title}</h2>
+              <h3 className="text-gray-900 text-lg pb-2">{detail.title}</h3>
               <p className="text-sm text-gray-700">{detail.description}</p>
             </motion.div>
           ))}
